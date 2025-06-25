@@ -6,7 +6,7 @@ export default function Home() {
       <header>
         <h1>Boutique</h1>
         <nav>
-          <a href="/#">Accueil</a>
+          <a href="#">Accueil</a>
           <a href="#" onclick="afficherCategorie('vetements')">
             Vêtements
           </a>
