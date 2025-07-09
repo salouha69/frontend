@@ -1,0 +1,101 @@
+[33mcommit 3e39455a8c7d1c29579e5d147f25f423713deacc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: salouha69 <salah88ronaldo@gmail.com>
+Date:   Fri Jul 4 16:13:49 2025 -1100
+
+    First commit
+
+ {src/app => public}/image/casque.jpg | Bin
+ {src/app => public}/image/jeans.jpg  | Bin
+ public/image/sac.jpg                 | Bin [31m0[m -> [32m5850[m bytes
+ {src/app => public}/image/tshirt.jpg | Bin
+ src/app/cart.js                      |  21 [31m----[m
+ src/app/globals.css                  | 185 [32m++++++++++++++++[m[31m----------------[m
+ src/app/login.js                     |  30 [31m------[m
+ src/app/login/page.jsx               |  62 [32m+++++++++++[m
+ src/app/page.js                      | 201 [32m+++++++++++++++++++++++++++++++[m[31m----[m
+ src/app/panier.js                    |  15 [31m---[m
+ 10 files changed, 336 insertions(+), 178 deletions(-)
+
+[33mcommit 834b859da2a70672f76b45ce7f78b7c75bb1f3c3[m
+Author: salouha69 <salah88ronaldo@gmail.com>
+Date:   Tue Jun 24 23:54:19 2025 -1100
+
+    Ajout du projet HTML/CSS/JS dans static-site
+
+ src/app/page.js | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[33mcommit b1035ba6d61a6523e0402acc8c25892a5f3f0f6a[m
+Author: salouha69 <salah88ronaldo@gmail.com>
+Date:   Tue Jun 24 23:51:19 2025 -1100
+
+    Ajout du début du site e-commerce dans static-site
+
+ src/app/cart.js                                  |  21 [32m++++[m
+ src/app/globals.css                              | 108 [32m++++++++++++++++++[m[31m-[m
+ {static-site/images => src/app/image}/casque.jpg | Bin
+ {static-site/images => src/app/image}/jeans.jpg  | Bin
+ {static-site/images => src/app/image}/tshirt.jpg | Bin
+ src/app/login.js                                 |  30 [32m++++++[m
+ src/app/page.js                                  | 116 [32m++++[m[31m----------------[m
+ src/app/panier.js                                |  15 [32m+++[m
+ static-site/cart.html                            |  21 [31m----[m
+ static-site/images/sac.jpg                       | Bin [31m5850[m -> [32m0[m bytes
+ static-site/index.html                           |  26 [31m-----[m
+ static-site/login.html                           |  32 [31m------[m
+ static-site/panier.html                          |  16 [31m---[m
+ static-site/script.js                            | 128 [31m-----------------------[m
+ static-site/style.css                            | 107 [31m-------------------[m
+ 15 files changed, 193 insertions(+), 427 deletions(-)
+
+[33mcommit 8387bb11141a3957e6ebedf1ebb7c7b20a151ed4[m
+Author: salouha69 <salah88ronaldo@gmail.com>
+Date:   Tue Jun 24 22:36:34 2025 -1100
+
+    Ajout du début du site e-commerce dans static-site
+
+ static-site/cart.html         |  21 [32m+++++++[m
+ static-site/images/casque.jpg | Bin [31m0[m -> [32m11987[m bytes
+ static-site/images/jeans.jpg  | Bin [31m0[m -> [32m3177[m bytes
+ static-site/images/sac.jpg    | Bin [31m0[m -> [32m5850[m bytes
+ static-site/images/tshirt.jpg | Bin [31m0[m -> [32m6713[m bytes
+ static-site/index.html        |  26 [32m+++++++++[m
+ static-site/login.html        |  32 [32m+++++++++++[m
+ static-site/panier.html       |  16 [32m++++++[m
+ static-site/script.js         | 128 [32m++++++++++++++++++++++++++++++++++++++++++[m
+ static-site/style.css         | 107 [32m+++++++++++++++++++++++++++++++++++[m
+ 10 files changed, 330 insertions(+)
+
+[33mcommit 7b3ea621d496eaf0a8d38d67613ac4f2cf4d08be[m
+Author: salouha69 <salah88ronaldo@gmail.com>
+Date:   Mon Jun 16 04:30:04 2025 -1100
+
+    test : testing git
+
+ test.txt | 1 [32m+[m
+ 1 file changed, 1 insertion(+)
+
+[33mcommit a3b8bbef30b3d96868635e394f7fafa2f942f8a3[m
+Author: salouha69 <salah88ronaldo@gmail.com>
+Date:   Mon Jun 16 04:17:50 2025 -1100
+
+    Initial commit from Create Next App
+
+ .gitignore          |   41 [32m+[m
+ README.md           |   36 [32m+[m
+ eslint.config.mjs   |   14 [32m+[m
+ jsconfig.json       |    7 [32m+[m
+ next.config.mjs     |    4 [32m+[m
+ package-lock.json   | 6132 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ package.json        |   23 [32m+[m
+ postcss.config.mjs  |    5 [32m+[m
+ public/file.svg     |    1 [32m+[m
+ public/globe.svg    |    1 [32m+[m
+ public/next.svg     |    1 [32m+[m
+ public/vercel.svg   |    1 [32m+[m
+ public/window.svg   |    1 [32m+[m
+ src/app/favicon.ico |  Bin [31m0[m -> [32m25931[m bytes
+ src/app/globals.css |   26 [32m+[m
+ src/app/layout.js   |   29 [32m+[m
+ src/app/page.js     |  103 [32m+[m
+ 17 files changed, 6425 insertions(+)
