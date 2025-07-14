@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 export default function Home() {
   const [cart, setCart] = useState([]);
@@ -60,6 +59,13 @@ export default function Home() {
     alert("Produit ajouté au panier !");
   };
 
+  const removeFromCart = (index) => {
+    const updatedCart = [...cart];
+    updatedCart.splice(index, 1);
+    setCart(updatedCart);
+    localStorage.setItem("panier", JSON.stringify(updatedCart));
+  };
+
   const clearCart = () => {
     localStorage.removeItem("panier");
     setCart([]);
@@ -87,9 +93,9 @@ export default function Home() {
   return (
     <div className="container mx-auto p-4">
       <header className="mb-6">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center flex-wrap">
           <h1 className="text-3xl font-bold text-gray-800">Boutique</h1>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 mt-2 sm:mt-0">
             <span className="text-gray-600">Bienvenue, {user}</span>
             <button
               onClick={logout}
@@ -99,42 +105,27 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <nav className="mt-4 flex gap-2">
-          <button
-            onClick={() => setActiveCategory("")}
-            className={`px-4 py-2 rounded ${
-              activeCategory === "" ? "bg-blue-500 text-white" : "bg-gray-200"
-            } hover:bg-blue-400 transition`}
-          >
-            Tous
-          </button>
-          <button
-            onClick={() => setActiveCategory("vetements")}
-            className={`px-4 py-2 rounded ${
-              activeCategory === "vetements"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200"
-            } hover:bg-blue-400 transition`}
-          >
-            Vêtements
-          </button>
-          <button
-            onClick={() => setActiveCategory("accessoires")}
-            className={`px-4 py-2 rounded ${
-              activeCategory === "accessoires"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200"
-            } hover:bg-blue-400 transition`}
-          >
-            Accessoires
-          </button>
+        <nav className="mt-4 flex gap-2 flex-wrap">
+          {["", "vetements", "accessoires"].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-2 rounded ${
+                activeCategory === cat
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200"
+              } hover:bg-blue-400 transition`}
+            >
+              {cat === "" ? "Tous" : cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </button>
+          ))}
         </nav>
       </header>
 
-      <main className="flex gap-8">
+      <main className="flex flex-col lg:flex-row gap-8">
         <div className="flex-1">
           <h2 className="text-2xl font-semibold mb-4">Produits</h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {filteredProducts.map((p) => (
               <div
                 key={p.id}
@@ -158,16 +149,27 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex-0.5">
+        <div className="w-full lg:w-1/3">
           <h2 className="text-2xl font-semibold mb-4">Panier</h2>
           {cart.length === 0 ? (
             <p className="text-gray-500">Votre panier est vide.</p>
           ) : (
             <>
-              <ul className="mb-4">
+              <ul className="mb-4 space-y-2">
                 {cart.map((item, i) => (
-                  <li key={i} className="text-gray-700">
-                    {item.name} - {item.price}$
+                  <li
+                    key={i}
+                    className="bg-white p-2 rounded shadow flex justify-between items-center"
+                  >
+                    <span>
+                      {item.name} - {item.price}$
+                    </span>
+                    <button
+                      onClick={() => removeFromCart(i)}
+                      className="text-red-600 hover:text-red-800 text-sm"
+                    >
+                      Supprimer
+                    </button>
                   </li>
                 ))}
               </ul>
