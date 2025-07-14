@@ -1,20 +1,16 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
       router.push("/");
     }
   }, [router]);
-
   function handleSubmit(event) {
     event.preventDefault();
     if (username && password) {
@@ -25,7 +21,6 @@ export default function Login() {
       alert("Veuillez remplir tous les champs.");
     }
   }
-
   return (
     <div className="container mx-auto p-4 max-w-md">
       <header className="mb-6">
